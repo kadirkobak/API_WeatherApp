@@ -1,4 +1,5 @@
 ﻿using API_WeatherApp.Context;
+using API_WeatherApp.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,5 +19,12 @@ namespace API_WeatherApp.Controllers
             return Ok(cities);
         }
 
+        [HttpPost]
+        public IActionResult CreateWeatherCity(City city)
+        {
+            context.Cities.Add(city);
+            context.SaveChanges();
+            return Ok("City added.");
+        }
     }
 }
