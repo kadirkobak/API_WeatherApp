@@ -26,5 +26,12 @@ namespace API_WeatherApp.Controllers
             context.SaveChanges();
             return Ok("City added.");
         }
+
+        [HttpDelete]
+        public IActionResult DeleteWeatherCity(int id)
+        {
+            var value = context.Cities.Find(id);
+            return Ok("City deleted.");
+        }
     }
 }
