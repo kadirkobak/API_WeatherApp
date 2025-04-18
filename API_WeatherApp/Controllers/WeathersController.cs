@@ -31,7 +31,7 @@ namespace API_WeatherApp.Controllers
         public IActionResult DeleteWeatherCity(int id)
         {
             var value = context.Cities.Find(id);
-            return Ok("City deleted.");
+            return Ok("City deleted");
         }
     }
 }
