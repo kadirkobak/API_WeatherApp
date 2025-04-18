@@ -54,5 +54,19 @@ namespace API_WeatherApp.Controllers
             var count = context.Cities.Count();
             return Ok(count);
         }
+
+        [HttpGet("MaxTempCityName")]
+        public IActionResult MaxTempCityName()
+        {
+            var value = context.Cities.OrderByDescending(x => x.Temp).Select(y => y.CityName).FirstOrDefault();
+            return Ok(value);
+        }
+
+        [HttpGet("MinTempCityName")]
+        public IActionResult MinTempCityName()
+        {
+            var value = context.Cities.OrderBy(x => x.Temp).Select(y => y.CityName).FirstOrDefault();
+            return Ok(value);
+        }
     }
 }
