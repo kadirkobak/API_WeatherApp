@@ -47,5 +47,12 @@ namespace API_WeatherApp.Controllers
             context.SaveChanges();
             return Ok("City updated.");
         }
+
+        [HttpGet("TotalCityCount")]
+        public IActionResult TotalCityCount()
+        {
+            var count = context.Cities.Count();
+            return Ok(count);
+        }
     }
 }
